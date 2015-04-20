@@ -2,9 +2,9 @@
 /*jshint node:true, laxcomma: true, smarttabs: true*/
 'use strict';
 /**
- * Command line Interface for alice. This module is here to load other management
+ * Command line Interface. This module is here to load other management
  * commands. And that is about it.
- * @module alice.js
+ * @module cli.js
  * @author Eric Satterwhite
  * @since 1.9.0
  * @requires seeli
@@ -27,7 +27,6 @@
 
 debug('current dir', __dirname);
 debug('package path: %s', commandpath);
-
 
 fs
 	.readdirSync( commandpath )
