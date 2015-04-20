@@ -26,7 +26,7 @@ module.exports = new cli.Command({
 	,run: function( number, data, done ){
 		spinner.start()
 		var values = new Parser()
-			.parse( data.number )
+			.parse( number )
 			.then( function( parsed ){
 				data.area = parsed.area
 				return new Region( data.area ).number()
@@ -37,11 +37,11 @@ module.exports = new cli.Command({
 								.purchase( match.phone_number )
 				}
 
-				done(null, "located number " + match.phone_number )
+				done(null, "\nlocated number " + match.phone_number )
 			})
 			.then(function( purchased ){
 				console.log( purchased )
-				done(null, "new number: " + purchased.phone_number)
+				done(null, "\nnew number: " + purchased.phone_number)
 			})
 			.catch( function(e ){
 				return done( e,'')
