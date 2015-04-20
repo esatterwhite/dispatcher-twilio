@@ -43,12 +43,13 @@ describe('region',function(){
 
 		it('should exhaust all area codes', function( done ){
 			var codes, region;
-
+			this.timeout(350000)
 			region = new Region( 212 )
 
 			region.on( 'search', function( code ){
 				remove( codes, "" + code )
-			})
+			});
+
 			region
 				.codes( true )
 				.then(function( areacodes ){
@@ -57,11 +58,10 @@ describe('region',function(){
 					return region.number();
 				})
 				.catch( function( e ){
-					e.code.should.equal(101)
+					e.code.should.equal(1001)
 					codes.length.should.equal( 0 )
 				})
 		})
-
 	});
 	describe('#codes', function(){
 		var region;

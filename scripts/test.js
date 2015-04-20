@@ -21,6 +21,7 @@ var child_process = require('child_process')               // child proces for s
   , os            = require('os')                          // os module
   , util          = require("util")                        // util module
   , clone         = require('mout/lang/clone')             // object clone module
+  , set           = require('mout/object/set')
   , debug         = require('debug')( 'scripts:runner')
   , env           = clone( process.env )                   // clone of current process env
   , npath         = ( env.NODE_PATH || "" ).split( path.delimiter )     // cache of node path split into an array
@@ -39,6 +40,10 @@ env.NODE_PATH = npath
 reporter = process.stdout
 process.stdout.write(os.EOL);
 
+
+// fake a CI env variable for test creds
+set(env,'twilio.sid', 'AC53a9a57546b1edecba8eb015f3dfd074');
+set(env,'twilio.token', 'bb78371d96100b58a9268959eb0d8b55')
 // spinner.start();
 // spinner.stop();
 mocha = child_process.spawn("mocha", [
@@ -46,7 +51,7 @@ mocha = child_process.spawn("mocha", [
   , "--growl"
   , "--recursive"
   // ,"--debug-brk"
-  ,"--timeout=1200000"
+  ,"--timeout=10000"
   , '--reporter=spec'
   , "test"
 ], { env:env });
