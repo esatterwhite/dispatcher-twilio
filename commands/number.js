@@ -15,6 +15,7 @@ module.exports = new cli.Command({
 		cli.bold('Usage: ') + "dispatcher number +14148987474",
 		cli.bold('Usage: ') + "dispatcher number 212.548.2323",
 		cli.bold('Usage: ') + "dispatcher number 212.548.2323 --purchase",
+		cli.bold('Usage: ') + "dispatcher number 212.548.2323 --twilio:sid=<sid> --twilio:token=<token> --purchase",
 	]
 	,flags:{
 		purchase:{
