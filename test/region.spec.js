@@ -60,6 +60,7 @@ describe('region',function(){
 				.catch( function( e ){
 					e.code.should.equal(1001)
 					codes.length.should.equal( 0 )
+					done()
 				})
 		})
 	});
