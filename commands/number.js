@@ -9,12 +9,12 @@ spinner = new Spinner();
 spinner.setSpinnerString( Spinner.spinners[9]);
 
 module.exports = new cli.Command({
-	description:'number'
+	description:'Locate and purchase phone numbers from twilio'
 	,usage:[
-		cli.bold('Usage: ')+ "dispatcher number -i",
-		cli.bold('Usage: ')+ "dispatcher number --number=4148987474",
-		cli.bold('Usage: ')+ "dispatcher number --number=+14148987474",
-		cli.bold('Usage: ')+ "dispatcher number --number=212.548.2323",
+		cli.bold('Usage: ') + "dispatcher number 4148987474",
+		cli.bold('Usage: ') + "dispatcher number +14148987474",
+		cli.bold('Usage: ') + "dispatcher number 212.548.2323",
+		cli.bold('Usage: ') + "dispatcher number 212.548.2323 --purchase",
 	]
 	,flags:{
 		purchase:{
